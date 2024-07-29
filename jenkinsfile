@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKER-HUB= credentails('docker-hub-cred')
+    }
     stages {
         stage('Code Checkout') {
             steps {
@@ -9,6 +12,11 @@ pipeline {
         stage ('build docker image'){
             steps {
                 sh "docker build -t itsoli-image ."
+            }
+        } 
+        stage ('login to docker hub'){
+            steps {
+                sh "docker login https://hub.docker.com/ ${DOCKER-HUB}"
             }
         } 
     }
