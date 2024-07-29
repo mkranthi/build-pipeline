@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Code Checkout') {
+            steps {
+                git branch: 'feature', url: 'https://github.com/mkranthi/build-pipeline.git'
+            }
+        }
+        stage ('build docker image'){
+            steps {
+                sh "docker build -t itsoli-image ."
+            }
+        } 
+    }
+}
