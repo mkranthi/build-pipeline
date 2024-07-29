@@ -39,11 +39,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Clean up Docker resources if desired
-            sh 'docker system prune -f'
-        }
-    }
 }
