@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER-HUB= credentails('docker-hub-cred')
+        DOCKER-HUB = credentails('docker-hub-cred')
     }
     stages {
         stage('Code Checkout') {
